@@ -21,6 +21,8 @@ import DoctorDetails from './DoctorDetails';
 import Appointment from './Appointment';
 import Booking from './Booking';
 import BookingSuccess from './BookingSuccess';
+import Login from '../Login';
+import Register from '../Register';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,6 +40,8 @@ const HomeStack = () => {
         <Stack.Screen name="appointment" component={Appointment} options={{headerShown:false}}/>
         <Stack.Screen name="booking" component={Booking} options={{headerShown:false}}/>
         <Stack.Screen name="bookSuccess" component={BookingSuccess} options={{headerShown:false}}/>
+        <Stack.Screen name="login" component={Login} options={{headerShown:false}}/>
+        <Stack.Screen name="register" component={Register} options={{headerShown:false}}/>
 
         
       </Stack.Navigator>

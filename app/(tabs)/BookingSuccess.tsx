@@ -14,7 +14,8 @@ const BookingSuccess = ({navigation}) => {
         <Text style={{ color: 'black', fontSize: scaleFontSize(15), fontWeight: '800', textAlign: 'center',marginBottom:10 }}>Thank You</Text>
         <Text style={{ color: 'black', fontSize: scaleFontSize(15), fontWeight: '400', textAlign: 'center' }}>your booking is successfully completed</Text>
         <TouchableOpacity style={{left:20,right:20,bottom:20,position:'absolute',height:45,backgroundColor:'#1E5A84',borderRadius:7,justifyContent:'center'}} onPress={()=>{
-navigation.popToTop();
+// navigation.popToTop();
+navigation.navigate('login')
              }}>
                 <View style={{justifyContent:'center'}}>
                 <Text style={{ color: 'white', fontSize: scaleFontSize(13), fontWeight: '800', textAlign: 'center' }}>Back To Home</Text>

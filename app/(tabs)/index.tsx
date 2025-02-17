@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Image, StyleSheet, Platform, SafeAreaView, View ,Text, TextInput, ScrollView, Dimensions, FlatList, TouchableOpacity} from 'react-native';
 
 
@@ -13,6 +13,9 @@ export default function HomeScreen({ navigation }) {
       <Text>{item.name}</Text>
     </View>
   );
+
+
+
 
   return (
    <SafeAreaView  style={{flex:1,backgroundColor:'#F0F3F5'}}>
