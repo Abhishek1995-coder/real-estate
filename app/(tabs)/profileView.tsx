@@ -1,10 +1,31 @@
-import { Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Image, Dimensions } from 'react-native'
+import { Platform, SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Image, Dimensions, Alert } from 'react-native'
 import React from 'react'
 
-const Profile = () => {
+const Profile = ({navigation}) => {
 
   const { width } = Dimensions.get('window');
   const scaleFontSize = (size) => (width / 375) * size;
+
+  const showAlert = () => {
+    // Show the alert with a title, message, and buttons
+    Alert.alert(
+      "Alert", // Title of the alert
+      "Are you sure want to logout?", // Message of the alert
+      [
+        {
+          text: "Yes", // Text for the cancel button
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel", // Optional style for the cancel button
+        },
+        {
+          text: "No", // Text for the OK button
+          onPress: () => console.log('height * 0.25')
+          ,
+        },
+      ],
+      { cancelable: false } // You can set cancelable to false to prevent closing the alert by tapping outside
+    );
+  };
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: '#F0F3F5' }}>
       <View style={{ flex: 1, backgroundColor: '#F0F3F5', paddingHorizontal: 10, marginTop: Platform.OS == 'ios' ? 10 : 35 }} >
@@ -50,16 +71,24 @@ const Profile = () => {
           </View>
         </View>
         <View style={{ height: 40, marginTop: 10, backgroundColor: 'white', justifyContent: 'center',borderRadius:9 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <TouchableOpacity onPress={()=>{
+            navigation.navigate('about')
+          }}>
+ <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Text style={{ color: '#174666', fontSize: scaleFontSize(14), fontWeight: '800', marginLeft: 30 }}>About Us</Text>
             <Image style={{ width: 14, height: 14, marginRight: 15, marginTop: 3 }} source={require('/Users/mac/Documents/React-Native/myProject/client/assets/images/rightarrow.png')}></Image>
           </View>
+          </TouchableOpacity>
+         
         </View>
         <View style={{ height: 40, marginTop: 10, backgroundColor: 'white', justifyContent: 'center',borderRadius:9 }}>
+          <TouchableOpacity onPress={showAlert}>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
             <Text style={{ color: '#174666', fontSize: scaleFontSize(14), fontWeight: '800', marginLeft: 30 }}>Logout</Text>
             <Image style={{ width: 20, height: 20, marginRight: 15, }} source={require('/Users/mac/Documents/React-Native/myProject/client/assets/images/logout.png')}></Image>
           </View>
+          </TouchableOpacity>
+          
         </View>
       </View>
     </SafeAreaView>

@@ -1,7 +1,26 @@
 import { SafeAreaView, StyleSheet, Text, View ,Image,TextInput} from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 
 const Login = ({navigation}) => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+        // Basic validation check
+        if (username === '' || password === '') {
+          alert('Please enter both username and password');
+          return;
+        }
+        // Example of successful login (replace this with actual authentication logic)
+        if (username === 'admin' && password === 'password') {
+          alert('Login Successful');
+          // Navigate to another screen after successful login (e.g., Home Screen)
+          navigation.navigate('Home');
+        } else {
+            alert('Invalid username or password');
+            
+        }
+      };
   return (
     <SafeAreaView style={{flex:1,backgroundColor: '#F0F3F5'}}>
     <View style={{flex:1,paddingHorizontal:20}}>
@@ -17,7 +36,7 @@ const Login = ({navigation}) => {
         </View>
         <Text style={{color:'#174666',fontSize:14,fontWeight:'500',textAlign:'right',marginVertical:12}}>Forget Password?</Text>
         <View style={{height:45,backgroundColor:'#1E5A84',borderRadius:13,paddingHorizontal:8,marginTop:10}}>
-        <Text style={{color:'white',fontSize:14,fontWeight:'500',textAlign:'center',marginVertical:12}}>Sign In</Text>
+        <Text onPress={handleLogin} style={{color:'white',fontSize:14,fontWeight:'500',textAlign:'center',marginVertical:12}}>Sign In</Text>
         </View>
         <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center',bottom:40,left:40,right:40,position:'absolute'}}>
         <Text style={{color:'#174666',fontSize:14,fontWeight:'500'}}>Don't have an account? </Text>

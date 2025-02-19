@@ -23,6 +23,8 @@ import Booking from './Booking';
 import BookingSuccess from './BookingSuccess';
 import Login from '../Login';
 import Register from '../Register';
+import Aboutus from './Aboutus';
+import Favourite from './Favourite';
 
 const Tab = createBottomTabNavigator();
 
@@ -42,9 +44,8 @@ const HomeStack = () => {
         <Stack.Screen name="bookSuccess" component={BookingSuccess} options={{headerShown:false}}/>
         <Stack.Screen name="login" component={Login} options={{headerShown:false}}/>
         <Stack.Screen name="register" component={Register} options={{headerShown:false}}/>
-
-        
-      </Stack.Navigator>
+        <Stack.Screen name="about" component={Aboutus} options={{headerShown:false}}/>
+ </Stack.Navigator>
   );
 };
 
@@ -65,6 +66,7 @@ export default function TabLayout() {
     >
       <Tab.Screen name="Home" component={HomeStack} />
       <Tab.Screen name="Appiontment" component={TabTwoScreen} />
+      <Tab.Screen name="My Favourite" component={Favourite} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
